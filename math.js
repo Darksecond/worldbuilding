@@ -1,6 +1,7 @@
 //TODO Move to Scalar
 //TODO Rename mix to lerp
 //TODO use Math.fround
+//TODO should random accept a scale?
 
 (function(M){
   'use strict';

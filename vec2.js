@@ -19,6 +19,7 @@
 //TODO inverse(out, a) (1/a)
 //TODO str(a) ( vec2(0, 3) )
 //TODO clamp(out, a, min, max)
+//TODO random(out, scale)
 
 let Vec2 = {};
 
