@@ -2,7 +2,6 @@
 //http://glmatrix.net/docs/vec2.js.html
 
 //TODO Move out to first position in arguments
-//TODO Move divideS -> Scalar.divide or something
 //TODO Use math.fround
 
 //TODO set(out, x, y)
@@ -22,6 +21,7 @@
 //TODO random(out, scale)
 
 let Vec2 = {};
+Vec2.Scalar = {};
 
 Vec2.create = function(a, b) {
   return new Float32Array([a,b]);
@@ -48,7 +48,7 @@ Vec2.divide = function(a, b, out) {
   out[1] = a[1] / b[1];
 };
 
-Vec2.divideS = function(a, v, out) {
+Vec2.Scalar.divide = function(out, a, v) {
   out[0] = a[0] / v;
   out[1] = a[1] / v;
 };

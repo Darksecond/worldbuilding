@@ -1,3 +1,5 @@
+//TODO Maybe this should be totally UV based (0-1 for x and y on set)
+
 (function(C){
   'use strict';
   function Drawable(el) {
@@ -11,7 +13,7 @@
   Drawable.prototype.set = function(p, c) {
     let x = p[0], y = p[1];
     let r = c[0], g = c[1], b = c[2];
-    let index = (x + y * w) * 4;
+    let index = (x + y * this.width) * 4;
 
     this.imageData.data[index+0] = r*255;
     this.imageData.data[index+1] = g*255;

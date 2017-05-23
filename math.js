@@ -2,6 +2,7 @@
 //TODO Rename mix to lerp
 //TODO use Math.fround
 //TODO should random accept a scale?
+//TODO rename fade?
 
 (function(M){
   'use strict';

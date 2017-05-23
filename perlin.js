@@ -5,9 +5,9 @@
   'use strict';
 
   let grad3 = [
-    [1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0], 
-    [1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1], 
-    [0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]
+    Vec3.create(1,1,0),Vec3.create(-1,1,0),Vec3.create(1,-1,0),Vec3.create(-1,-1,0), 
+    Vec3.create(1,0,1),Vec3.create(-1,0,1),Vec3.create(1,0,-1),Vec3.create(-1,0,-1), 
+    Vec3.create(0,1,1),Vec3.create(0,-1,1),Vec3.create(0,1,-1),Vec3.create(0,-1,-1)
   ];
   
   let temp1 = Vec2.create(0,0);
@@ -21,7 +21,7 @@
     init() {
       var p = new Array(256);
       for(var i=0;i<256;i++) {
-        p[i] = M.floor(M.random()*256);
+        p[i] = M.floor(M.random()*256)|0;
       }
       for(var i=0;i<512;i++) {
         this.perm[i] = p[i&255];
@@ -29,21 +29,22 @@
     }
 
     grad(x,y) {
-      x = x & 255;
-      y = y & 255;
-      let g =  this.perm[x+this.perm[y]];
-      let g2 = grad3[g % 12];
-      return g2;
+      let g = this.perm[x+this.perm[y]];
+      return grad3[g % 12];
     }
 
     perlin(p) {
       let x0 = M.floor(p[0]);
-      let x1 = x0 + 1;
       let y0 = M.floor(p[1]);
-      let y1 = y0 + 1;
 
       let sx0 = p[0] - x0;
       let sy0 = p[1] - y0;
+
+      x0 = x0 & 255;
+      y0 = y0 & 255
+
+      let x1 = x0 + 1;
+      let y1 = y0 + 1;
       let sx1 = sx0 - 1;
       let sy1 = sy0 - 1;
 
