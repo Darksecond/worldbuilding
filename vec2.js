@@ -27,6 +27,11 @@ Vec2.create = function(a, b) {
   return new Float32Array([a,b]);
 };
 
+Vec2.set = function(out, x, y) {
+  out[0] = x;
+  out[1] = y;
+  return out;
+}
 
 Vec2.add = function(a, b, out) {
   out[0] = a[0] + b[0];

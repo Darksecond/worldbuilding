@@ -9,6 +9,8 @@
     [1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1], 
     [0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]
   ];
+  
+  let temp1 = Vec2.create(0,0);
 
   window.Perlin = class {
     constructor() {
@@ -45,10 +47,10 @@
       let sx1 = sx0 - 1;
       let sy1 = sy0 - 1;
 
-      let n00 = Vec2.dotXY(this.grad(x0, y0), sx0, sy0);
-      let n10 = Vec2.dotXY(this.grad(x1, y0), sx1, sy0);
-      let n01 = Vec2.dotXY(this.grad(x0, y1), sx0, sy1);
-      let n11 = Vec2.dotXY(this.grad(x1, y1), sx1, sy1);
+      let n00 = Vec2.dot(this.grad(x0, y0), Vec2.set(temp1, sx0, sy0));
+      let n10 = Vec2.dot(this.grad(x1, y0), Vec2.set(temp1, sx1, sy0));
+      let n01 = Vec2.dot(this.grad(x0, y1), Vec2.set(temp1, sx0, sy1));
+      let n11 = Vec2.dot(this.grad(x1, y1), Vec2.set(temp1, sx1, sy1));
 
       let fx = M.fade(sx0);
       let fy = M.fade(sy0);
