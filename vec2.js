@@ -71,7 +71,3 @@ Vec2.normalize = function(a, out) {
 Vec2.dot = function(a, b) {
   return a[0]*b[0] + a[1]*b[1];
 }
-
-Vec2.dotXY = function(a, x, y) {
-  return a[0]*x + a[1]*y;
-}
