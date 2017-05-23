@@ -1,3 +1,6 @@
+//TODO use Math.trunc instead of M.floor
+//TODO use Math.fround
+
 (function(){
   'use strict';
 

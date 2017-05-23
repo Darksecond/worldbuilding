@@ -1,10 +1,31 @@
 //http://media.tojicode.com/sfjs-vectors
+//http://glmatrix.net/docs/vec2.js.html
 
-var Vec2 = {};
+//TODO Move out to first position in arguments
+//TODO Move divideS -> Scalar.divide or something
+//TODO Use math.fround
+
+//TODO set(out, x, y)
+//TODO copy(out, a)
+//TODO clone(a)
+//TODO multiply
+//TODO floor
+//TODO ceil
+//TODO min
+//TODO max
+//TODO lerp(out, a, b, t)
+//TODO round
+//TODO negate(out, a) (-)
+//TODO inverse(out, a) (1/a)
+//TODO str(a) ( vec2(0, 3) )
+//TODO clamp(out, a, min, max)
+
+let Vec2 = {};
 
 Vec2.create = function(a, b) {
   return new Float32Array([a,b]);
 };
+
 
 Vec2.add = function(a, b, out) {
   out[0] = a[0] + b[0];

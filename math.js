@@ -1,3 +1,7 @@
+//TODO Move to Scalar
+//TODO Rename mix to lerp
+//TODO use Math.fround
+
 (function(M){
   'use strict';
 
