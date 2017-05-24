@@ -1,3 +1,18 @@
+//TODO Investigate vector fields
+//  https://en.wikipedia.org/wiki/Vector_field
+//TODO Investigae particle systems
+//  https://software.intel.com/en-us/html5/hub/blogs/build-a-javascript-particle-system-in-200-lines
+//TODO Cool stuff about geology and worldbuilding
+//  http://cauliflowerlabs.blogspot.nl/2014/09/geovox-geology-simulator-for-game-worlds.html
+//  http://cauliflowerlabs.blogspot.nl/2014/09/geovox-broad-strokes-planning-world.html
+//  http://cauliflowerlabs.blogspot.nl/2014/10/geology-simulator-plate-tectonics.html
+//  http://cauliflowerlabs.blogspot.nl/2014/10/geology-simulator-minerology-and.html
+//  http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/
+//  https://mewo2.com/notes/terrain/
+//TODO Investigate Voronoi
+//  https://en.wikipedia.org/wiki/Lloyd%27s_algorithm
+//TODO Investigate Cellular Automata
+
 (function(){
   let w = 500|0;
   let h = 500|0;
@@ -38,7 +53,8 @@
         P.perlin(p16)*0.25 +
         P.perlin(p8)*0.125;
       var m = n*0.5 + 0.5;
-      d.set([x,y], [m,m,m]);
+      //d.set([x,y], [m,m,m]); //Greyscale drawing
+      d.setP([x,y], m); // Palettized drawing for some color
     }
   }
 
