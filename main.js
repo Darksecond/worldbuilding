@@ -11,6 +11,7 @@
 //  https://mewo2.com/notes/terrain/
 //TODO Investigate Voronoi
 //  https://en.wikipedia.org/wiki/Lloyd%27s_algorithm
+//  https://rosettacode.org/wiki/Voronoi_diagram#Version_.232.
 //TODO Investigate Cellular Automata
 
 (function(){
