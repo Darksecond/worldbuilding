@@ -36,6 +36,7 @@
       this.boardBack = b1;
     }
 
+    //TODO this needs it's own palette
     draw(drawable) {
       for(var y=0;y<this.height;y++) {
         for(var x=0;x<this.width;x++) {
@@ -91,8 +92,8 @@
     }
 
     execute() {
+      // Double check this works
       this.field.forEach((p)=>{
-        //This doens't work
         switch(this.field.get(p)) {
           case 0:
             this.field.set(p, 0);

@@ -9,7 +9,8 @@
 //  http://cauliflowerlabs.blogspot.nl/2014/10/geology-simulator-minerology-and.html
 //  http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/
 //  https://mewo2.com/notes/terrain/
-//TODO Investigate Cellular Automata
+//TODO Needs timer stuff
+//  Play/Pause/Speed
 
 (function(){
   let w = 50|0;
@@ -17,10 +18,11 @@
   var d = C.new(w, h);
   var field = new Automata.Field(w, h);
   var rules = new Automata.Rules(field);
-  console.log(field);
 
-  rules.execute();
-  field.draw(d);
+  //setInterval(()=>{
+    rules.execute();
+    field.draw(d);
+  //},100);
 })();
 
 (function(){
