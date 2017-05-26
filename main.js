@@ -19,7 +19,7 @@
   for(let i=0;i<50;i++) {
     sites.push(Vec2.random([], [w,h]));
   }
-  let v = new Voronoi(sites, w, h);
+  let v = new Voronoi(sites);
 
   for(var y=0;y<h;y++) {
     for(var x=0;x<w;x++) {

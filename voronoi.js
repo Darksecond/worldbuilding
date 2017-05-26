@@ -2,19 +2,14 @@
 //  https://rosettacode.org/wiki/Voronoi_diagram#Version_.232.
 //  https://en.wikipedia.org/wiki/Lloyd%27s_algorithm
 //  Multiple distance functions
-//  Simplest implementation first
 //  What kind of api?
-//    point+sites -> closest site?
-//    or sites -> [w*h]
-//    or sites -> cells(vertices,site)
+//    sites -> cells(vertices,site)
 
 (function(){
   'use strict';
   window.Voronoi = class {
-    constructor(sites, width, height) {
+    constructor(sites) {
       this.sites = sites;
-      this.width = width;
-      this.height = height;
     }
 
     //TODO do we want to return the site here, or the index?
