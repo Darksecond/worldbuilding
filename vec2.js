@@ -4,7 +4,6 @@
 //TODO Move out to first position in arguments
 //TODO Use math.fround
 
-//TODO set(out, x, y)
 //TODO copy(out, a)
 //TODO clone(a)
 //TODO multiply
@@ -18,9 +17,8 @@
 //TODO inverse(out, a) (1/a)
 //TODO str(a) ( vec2(0, 3) )
 //TODO clamp(out, a, min, max)
-//TODO random(out, scale)
 
-let Vec2 = {};
+(function(Vec2){
 Vec2.Scalar = {};
 
 Vec2.create = function(a, b) {
@@ -73,9 +71,22 @@ Vec2.dot = function(a, b) {
   return a[0]*b[0] + a[1]*b[1];
 }
 
+//TODO Possibly accept a 'type' of distance? (euclidean, manhatten, etc)
+//  Should probably use Symbol for that.
+let randomTemp = Vec2.create(0,0);
 Vec2.distance = function(a,b) {
-  //TODO temp1 should be a 'fixed' temp.
-  //  Which means we need to wrap this whole thing so we can do that.
-  let temp1 = Vec2.subtract([], a, b);
-  return Vec2.length(temp1);
+  //TODO Check if length is ever negative?
+   Vec2.subtract(randomTemp, a, b);
+  return Vec2.length(randomTemp);
 }
+
+//TODO I really should do some sin/cos magic here.
+//TODO Maybe also accept scale as both a scalar and vec2
+Vec2.random = function(out, scale) {
+  scale = scale || [1, 1];
+  out[0] = M.random() * scale[0];
+  out[1] = M.random() * scale[1];
+  return out;
+}
+
+})(window.Vec2 = window.Vec2 || {})
