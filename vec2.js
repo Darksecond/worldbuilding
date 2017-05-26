@@ -38,9 +38,10 @@ Vec2.add = function(a, b, out) {
   out[1] = a[1] + b[1];
 };
 
-Vec2.subtract = function(a, b, out) {
+Vec2.subtract = function(out, a, b) {
   out[0] = a[0] - b[0];
   out[1] = a[1] - b[1];
+  return out;
 };
 
 Vec2.divide = function(a, b, out) {
@@ -70,4 +71,11 @@ Vec2.normalize = function(a, out) {
 
 Vec2.dot = function(a, b) {
   return a[0]*b[0] + a[1]*b[1];
+}
+
+Vec2.distance = function(a,b) {
+  //TODO temp1 should be a 'fixed' temp.
+  //  Which means we need to wrap this whole thing so we can do that.
+  let temp1 = Vec2.subtract([], a, b);
+  return Vec2.length(temp1);
 }

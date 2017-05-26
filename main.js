@@ -18,6 +18,32 @@
   let w = 500|0;
   let h = 500|0;
   var d = C.new(w, h);
+  let sites = [
+    Vec2.create(125, 250),
+    Vec2.create(375, 250),
+    Vec2.create(250, 125),
+    Vec2.create(250, 375),
+    Vec2.create(125, 125),
+    Vec2.create(100, 125),
+    Vec2.create(300, 100),
+  ];
+  let v = new Voronoi(sites, w, h);
+
+  for(var y=0;y<h;y++) {
+    for(var x=0;x<w;x++) {
+      let site = v.voronoi([x,y]);
+      d.set([x,y], [site[0]/w, site[1]/h]);
+      //d.set([x,y], [x/w,y/h,1]);
+    }
+  }
+
+  d.draw();
+})();
+
+(function(){
+  let w = 500|0;
+  let h = 500|0;
+  var d = C.new(w, h);
 
   for(var y=0;y<h;y++) {
     for(var x=0;x<w;x++) {
