@@ -76,8 +76,9 @@ Vec2.dot = function(a, b) {
 let randomTemp = Vec2.create(0,0);
 Vec2.distance = function(a,b) {
   //TODO Check if length is ever negative?
-   Vec2.subtract(randomTemp, a, b);
-  return Vec2.length(randomTemp);
+  Vec2.subtract(randomTemp, a, b);
+  //return Math.abs(randomTemp[0]) + Math.abs(randomTemp[1]); //Manhatten
+  return Vec2.length(randomTemp); //Euclidean
 }
 
 //TODO I really should do some sin/cos magic here.

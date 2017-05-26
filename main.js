@@ -12,6 +12,18 @@
 //TODO Investigate Cellular Automata
 
 (function(){
+  let w = 50|0;
+  let h = 50|0;
+  var d = C.new(w, h);
+  var field = new Automata.Field(w, h);
+  var rules = new Automata.Rules(field);
+  console.log(field);
+
+  rules.execute();
+  field.draw(d);
+})();
+
+(function(){
   let w = 500|0;
   let h = 500|0;
   var d = C.new(w, h);

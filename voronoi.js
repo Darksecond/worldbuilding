@@ -7,6 +7,7 @@
 
 (function(){
   'use strict';
+
   window.Voronoi = class {
     constructor(sites) {
       this.sites = sites;
@@ -14,6 +15,7 @@
 
     //TODO do we want to return the site here, or the index?
     //  The index might be nice, as then you can use that for other arrays, like color.
+    //TODO This is not very efficient
     voronoi(p) {
       let bestSite = this.sites[0];
       let bestSiteLength = Vec2.distance(p, bestSite);
