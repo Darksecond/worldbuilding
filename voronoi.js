@@ -13,8 +13,30 @@
       this.sites = sites;
     }
 
-    //TODO do we want to return the site here, or the index?
-    //  The index might be nice, as then you can use that for other arrays, like color.
+    //TODO stupidly slow way of finding centroids.
+    //TODO This needs cleaning up
+    //  Used for Lloyd's Argorithm.
+    centroids(width, height) {
+      let centroids = new Array(this.sites.length);
+
+      for(let y=0;y<height;y++) {
+        for(let x=0;x<width;x++) {
+          let p = [x,y];
+          let siteIndex = this.voronoi(p);
+          centroids[siteIndex] = centroids[siteIndex] || {pos: [0,0], count: 0};
+          let centroid = centroids[siteIndex];
+          Vec2.add(centroid.pos, p, centroid.pos);
+          centroid.count++;
+        }
+      }
+      for(let i=0;i<centroids.length;i++) {
+        let c = []
+        centroids[i] = Vec2.Scalar.divide(c, centroids[i].pos, centroids[i].count);
+        centroids[i] = c;
+      }
+      return centroids;
+    }
+
     //TODO This is not very efficient
     voronoi(p) {
       let bestSite = this.sites[0];
@@ -30,8 +52,7 @@
           bestSiteIndex = i;
         }
       }
-      //TODO return bestSiteIndex;
-      return bestSite;
+      return bestSiteIndex;
     }
   };
 })();

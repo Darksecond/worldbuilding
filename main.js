@@ -11,10 +11,12 @@
 //  https://mewo2.com/notes/terrain/
 //TODO Needs timer stuff
 //  Play/Pause/Speed
+//TODO Needs control interface
+//  Probably like drawable, but seperate
 
 (function(){
-  let w = 50|0;
-  let h = 50|0;
+  let w = 20|0;
+  let h = 20|0;
   var d = C.new(w, h);
   var field = new Automata.Field(w, h);
   var rules = new Automata.Rules(field);
@@ -35,9 +37,12 @@
   }
   let v = new Voronoi(sites);
 
+  v.sites = v.centroids(w,h);
+
   for(var y=0;y<h;y++) {
     for(var x=0;x<w;x++) {
-      let site = v.voronoi([x,y]);
+      let siteIndex = v.voronoi([x,y]);
+      let site = v.sites[siteIndex];
       d.set([x,y], [site[0]/w, site[1]/h]);
     }
   }
